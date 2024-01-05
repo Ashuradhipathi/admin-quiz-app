@@ -5,7 +5,7 @@ import streamlit as st
 st.header('Enter the Questions', divider='rainbow')
 
 # Connect to MongoDB
-client = MongoClient("")
+client = MongoClient(os.getenv('mongostr'), serverSelectionTimeoutMS=60000)
 db = client["quiz_db"]
 collection = db["quiz_collection"]
 scores_collection = db["scores_collection"]  # Add scores_collection
